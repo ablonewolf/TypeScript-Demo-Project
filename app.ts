@@ -7,9 +7,11 @@ function add(number1: number, number2: number) {
 type person = {
   name: string;
   age: number;
+  role: [string, string];
 };
 
 const arka: person = {
   name: 'Arka',
-  age: 25
+  age: 25,
+  role: ['Software Engineer', 'Backend']
 };
