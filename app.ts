@@ -4,14 +4,23 @@ function add(number1: number, number2: number) {
   return number1 + number2;
 }
 
+enum Roles {
+  ADMIN,
+  MANAGER,
+  ENGINEER,
+  ARCHITECTURE
+}
+
 type person = {
   name: string;
   age: number;
-  role: [string, string];
+  occupation: [string, string];
+  role: number;
 };
 
 const arka: person = {
   name: 'Arka',
   age: 25,
-  role: ['Software Engineer', 'Backend']
+  occupation: ['Software Engineer', 'Backend'],
+  role: Roles.ADMIN
 };
