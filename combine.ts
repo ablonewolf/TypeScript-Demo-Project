@@ -5,7 +5,7 @@ const combine = function (
   input1: combinable,
   input2: combinable,
   resultConvertion: 'number' | 'text'
-) {
+): number | string {
   if (
     typeof input1 === 'number' &&
     typeof input2 === 'number' &&
