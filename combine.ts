@@ -1,6 +1,9 @@
+type combinable = number | string;
+type conversionDescriptor = 'number' | 'text';
+
 const combine = function (
-  input1: number | string,
-  input2: number | string,
+  input1: combinable,
+  input2: combinable,
   resultConvertion: 'number' | 'text'
 ) {
   if (
