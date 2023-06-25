@@ -1,7 +1,7 @@
 type combinable = number | string;
 type conversionDescriptor = 'number' | 'text';
 
-const add = (number1: number, number2: number) => number1 + number2;
+const addTwoNumbers = (number1: number, number2: number) => number1 + number2;
 const addAndHandle = (
   input1: combinable,
   input2: combinable,
