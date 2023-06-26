@@ -24,7 +24,7 @@ const combine = function (
     typeof input2 === 'number' &&
     resultConvertion === 'number'
   ) {
-    return add(input1, input2);
+    return addTwoNumbers(input1, input2);
   } else {
     return input1.toString() + ' ' + input2.toString();
   }
