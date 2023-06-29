@@ -7,11 +7,11 @@ const addAndHandle = (
   input2: combinable,
   callBackFunction: (output: combinable) => void
 ) => {
-  const inputType =
+  const resultConversion =
     typeof input1 === 'number' && typeof input2 === 'number'
       ? 'number'
       : 'text';
-  callBackFunction(combine(input1, input2, inputType));
+  callBackFunction(combine(input1, input2, resultConversion));
 };
 
 const combine = function (
@@ -19,12 +19,8 @@ const combine = function (
   input2: combinable,
   resultConvertion: 'number' | 'text'
 ): number | string {
-  if (
-    typeof input1 === 'number' &&
-    typeof input2 === 'number' &&
-    resultConvertion === 'number'
-  ) {
-    return addTwoNumbers(input1, input2);
+  if (resultConvertion === 'number') {
+    return addTwoNumbers(Number(input1), Number(input2));
   } else {
     return input1.toString() + ' ' + input2.toString();
   }
