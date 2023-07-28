@@ -11,7 +11,9 @@ class Department {
     console.log(
       `Total number of students in the department is ${this.students.length}`
     );
+  }
 
+  public printStudentInfo(this: Department) {
     for (let student of this.students) {
       student.printInfo();
     }
@@ -47,3 +49,4 @@ computerScience.addStudent(farhan);
 computerScience.addStudent(nipa);
 computerScience.addStudent(shourov);
 computerScience.describe();
+computerScience.printStudentInfo();
