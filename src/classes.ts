@@ -50,6 +50,10 @@ class SoftwareEngineering extends Department {
     return this.mostEnrolledCourse;
   }
 
+  static get departmentName() {
+    return this.name;
+  }
+
   public describe(this: SoftwareEngineering) {
     super.describe();
     console.log(`Chairman of this department: ${this.chairman}`);
@@ -83,6 +87,7 @@ softwareEngineerig.addStudent(anim);
 softwareEngineerig.addStudent(rejaur);
 softwareEngineerig.addStudent(ifti);
 softwareEngineerig.addStudent(faiaz);
+// console.log(`Department name: ${SoftwareEngineering.departmentName}`);
 softwareEngineerig.describe();
 softwareEngineerig.printStudentInfo();
 console.log(
