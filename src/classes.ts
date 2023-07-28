@@ -1,8 +1,7 @@
 class Department {
-  private name: string;
   private students: Student[] = [];
 
-  constructor(name: string) {
+  constructor(private name: string) {
     this.name = name;
   }
 
@@ -25,10 +24,7 @@ class Department {
 }
 
 class Student {
-  private name: string;
-  private age: number;
-
-  constructor(name: string, age: number) {
+  constructor(private name: string, private age: number) {
     this.name = name;
     this.age = age;
   }
