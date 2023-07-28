@@ -35,9 +35,19 @@ class Student {
 }
 
 class SoftwareEngineering extends Department {
+  private mostEnrolledCourse: string;
   constructor(private chairman: string) {
     super('Software Engineering');
     this.chairman = chairman;
+    this.mostEnrolledCourse = 'Java';
+  }
+
+  set mostViewedCourse(mostViewedCourse: string) {
+    this.mostEnrolledCourse = mostViewedCourse;
+  }
+
+  get mostViewedCourse() {
+    return this.mostEnrolledCourse;
   }
 
   public describe(this: SoftwareEngineering) {
@@ -75,3 +85,10 @@ softwareEngineerig.addStudent(ifti);
 softwareEngineerig.addStudent(faiaz);
 softwareEngineerig.describe();
 softwareEngineerig.printStudentInfo();
+console.log(
+  `Most enrolled course for Software Engineering department till now was: ${softwareEngineerig.mostViewedCourse}.`
+);
+softwareEngineerig.mostViewedCourse = 'Web Engineering';
+console.log(
+  `Currently, the most enrolled course for Software Engineering Department is: ${softwareEngineerig.mostViewedCourse}.`
+);
