@@ -18,9 +18,9 @@ type person = {
   role: number;
 };
 
-const arka: person = {
-  name: 'Arka',
-  age: 25,
-  occupation: ['Software Engineer', 'Backend'],
-  role: Roles.ADMIN
-};
+// const arka: person = {
+//   name: 'Arka',
+//   age: 25,
+//   occupation: ['Software Engineer', 'Backend'],
+//   role: Roles.ADMIN
+// };
