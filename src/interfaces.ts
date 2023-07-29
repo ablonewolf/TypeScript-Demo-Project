@@ -1,4 +1,4 @@
-interface Person {
+interface GreetableUser {
   name: string;
   age: number;
   sex: Sex;
@@ -8,7 +8,7 @@ interface Person {
 
 type Sex = 'Male' | 'Female' | 'Other';
 
-let user1: Person;
+let user1: GreetableUser;
 
 user1 = {
   name: 'Arka',
