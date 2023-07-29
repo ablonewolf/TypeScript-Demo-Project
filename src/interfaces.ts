@@ -1,5 +1,7 @@
 interface Person {
   readonly name: string;
+  nickName?: string;
+
   printInfo(): void;
 }
 
@@ -41,6 +43,7 @@ user1 = {
 
 class SoftwareEngineer implements Person {
   name: string;
+  nickName?: string | undefined;
   protected age: number;
   protected sex: Sex;
   protected programmingLanguage: ProgrammingLanguage;
@@ -51,18 +54,28 @@ class SoftwareEngineer implements Person {
     age: number,
     sex: Sex,
     programmingLanguage: ProgrammingLanguage,
-    responsibility: SoftwareResponsibility
+    responsibility: SoftwareResponsibility,
+    nickName?: string
   ) {
     this.name = name;
     this.age = age;
     this.sex = sex;
     this.programmingLanguage = programmingLanguage;
     this.responsibility = responsibility;
+    this.nickName = nickName;
   }
 
   printInfo(): void {
+    let nickNameText;
+    if (this.nickName === undefined) {
+      nickNameText = ``;
+    } else {
+      nickNameText = ` NickName of this engineer is ${this.nickName}`;
+    }
     console.log(
-      `${this.name} is a software engineer, with an age of ${this.age} and with the gender of ${this.sex}.\n` +
+      `${this.name} is a software engineer, with an age of ${this.age} and with the gender of ${this.sex}.` +
+        nickNameText +
+        `\n` +
         `This engineer's responsibility lies on ${this.responsibility}, with this preferrend programming language: ${this.programmingLanguage}.\n`
     );
   }
@@ -73,7 +86,8 @@ const engineer1 = new SoftwareEngineer(
   26,
   'Male',
   'Java',
-  'Full-Stack'
+  'Full-Stack',
+  'Arka'
 );
 engineer1.printInfo();
 
@@ -82,7 +96,8 @@ const engineer2 = new SoftwareEngineer(
   28,
   'Male',
   'JavaScript',
-  'FrontEnd'
+  'FrontEnd',
+  'Shourov'
 );
 engineer2.printInfo();
 
