@@ -1,13 +1,13 @@
-interface GreetableUser {
+interface Person {
+  readonly name: string;
+  printInfo(): void;
+}
+
+interface GreetableUser extends Person {
   name: string;
   age: number;
   sex: Sex;
 
-  printInfo(): void;
-}
-
-interface Person {
-  readonly name: string;
   printInfo(): void;
 }
 
