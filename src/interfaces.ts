@@ -7,6 +7,7 @@ interface GreetableUser {
 }
 
 interface Person {
+  readonly name: string;
   printInfo(): void;
 }
 
@@ -39,7 +40,7 @@ user1 = {
 // user1.printInfo();
 
 class SoftwareEngineer implements Person {
-  protected name: string;
+  name: string;
   protected age: number;
   protected sex: Sex;
   protected programmingLanguage: ProgrammingLanguage;
