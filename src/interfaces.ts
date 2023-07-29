@@ -1,10 +1,12 @@
 interface Person {
   name: string;
   age: number;
-  sex: string;
+  sex: Sex;
 
   printInfo(): void;
 }
+
+type Sex = 'Male' | 'Female' | 'Other';
 
 let user1: Person;
 
