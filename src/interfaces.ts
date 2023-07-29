@@ -13,7 +13,7 @@ interface GreetableUser extends Person {
   printInfo(): void;
 }
 
-type SoftwareResponsibility = 'BackEnd' | 'FrontEnd' | 'Full-Stack';
+type ApplicationStack = 'BackEnd' | 'FrontEnd' | 'Full-Stack';
 
 type ProgrammingLanguage =
   | 'Java'
@@ -47,14 +47,14 @@ class SoftwareEngineer implements Person {
   protected age: number;
   protected sex: Sex;
   protected programmingLanguage: ProgrammingLanguage;
-  protected responsibility: SoftwareResponsibility;
+  protected responsibility: ApplicationStack;
 
   constructor(
     name: string,
     age: number,
     sex: Sex,
     programmingLanguage: ProgrammingLanguage,
-    responsibility: SoftwareResponsibility,
+    responsibility: ApplicationStack,
     nickName?: string
   ) {
     this.name = name;
