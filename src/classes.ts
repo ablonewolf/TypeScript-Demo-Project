@@ -52,8 +52,9 @@ class Course {
 
 class ComputerScience extends Department {
   private courses: Course[];
+  private static instance: ComputerScience;
 
-  constructor(private chairman: string) {
+  private constructor(private chairman: string) {
     super('Computer Science and Engineering');
     this.chairman = chairman;
     this.courses = [];
@@ -70,6 +71,15 @@ class ComputerScience extends Department {
     );
   }
 
+  static getInstance() {
+    if (ComputerScience.instance) {
+      return this.instance;
+    } else {
+      this.instance = new ComputerScience(`Upama Kabir`);
+      return this.instance;
+    }
+  }
+
   public addCourse(course: Course) {
     this.courses.push(course);
   }
@@ -83,6 +93,7 @@ class ComputerScience extends Department {
 
 class SoftwareEngineering extends Department {
   private mostEnrolledCourse: string;
+
   constructor(private chairman: string) {
     super('Software Engineering');
     this.chairman = chairman;
@@ -122,7 +133,14 @@ const operatingSystems = new Course('Operating Systems', 3);
 const softwareDesignPattern = new Course('Software Design Patterns', 3);
 const webEngineering = new Course('Web Engineering', 1.5);
 
-const computerScience = new ComputerScience(`Upama Kabir`);
+const computerScience = ComputerScience.getInstance();
+const computerScience2 = ComputerScience.getInstance();
+
+console.log(
+  `are computerScience and computerScience2 same instance? ${
+    computerScience === computerScience2
+  }`
+);
 computerScience.addStudent(arka);
 computerScience.addStudent(farhan);
 computerScience.addStudent(nipa);
