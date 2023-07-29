@@ -28,6 +28,14 @@ if (userInputElement) {
   (userInputElement as HTMLInputElement).value = 'Hi There!';
 }
 
+interface ErrorContaienr {
+  [prop: string]: string;
+}
+
+const errorBag: ErrorContaienr = {
+  email: 'Not a valid email',
+  username: 'Must start with a character'
+};
 // const arka: person = {
 //   name: 'Arka',
 //   age: 25,
