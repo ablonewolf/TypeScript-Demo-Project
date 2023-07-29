@@ -65,3 +65,27 @@ const developer3: UnknownDeveloper = {
 };
 
 // printDeveloperInfo(developer3);
+
+type Combinable = number | string;
+
+function add(a: number, b: number): number;
+function add(a: string, b: string): string;
+function add(a: string, b: number): string;
+function add(a: number, b: string): string;
+function add(a: combinable, b: combinable) {
+  if (typeof a === 'string' || typeof b === 'string') {
+    return a.toString() + ' ' + b.toString();
+  } else {
+    return a + b;
+  }
+}
+
+// console.log(
+//   `Result is ${add(5, 3)} and type of the result: ${typeof add(5, 3)}.`
+// );
+// console.log(
+//   `Result is ${add('Arka', 'Bhuiyan')} and the type of the result: ${typeof add(
+//     'Arka',
+//     'Bhuiyan'
+//   )}`
+// );
