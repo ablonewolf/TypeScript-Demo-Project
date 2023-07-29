@@ -1,16 +1,19 @@
-class Department {
+abstract class Department {
   private students: Student[] = [];
 
   constructor(private name: string) {
     this.name = name;
   }
 
-  public describe(this: Department) {
-    console.log(`Name of the department: ${this.name}`);
-    console.log(
-      `Total number of students in the department is ${this.students.length}`
-    );
+  get departmentName() {
+    return this.name;
   }
+
+  get currentStudents() {
+    return this.students;
+  }
+
+  abstract describe(this: Department): void;
 
   public printStudentInfo(this: Department) {
     for (let student of this.students) {
@@ -31,6 +34,50 @@ class Student {
 
   public printInfo(this: Student) {
     console.log(`Name of the student: ${this.name} and age: ${this.age}.`);
+  }
+}
+
+class Course {
+  constructor(private courseName: string, private courseCredit: number) {
+    this.courseName = courseName;
+    this.courseCredit = courseCredit;
+  }
+
+  public printCourseInfo(this: Course) {
+    console.log(
+      `Course name: ${this.courseName}, and its credit: ${this.courseCredit}.`
+    );
+  }
+}
+
+class ComputerScience extends Department {
+  private courses: Course[];
+
+  constructor(private chairman: string) {
+    super('Computer Science and Engineering');
+    this.chairman = chairman;
+    this.courses = [];
+  }
+
+  public describe(this: ComputerScience): void {
+    console.log(`Name of the department: ${this.departmentName}.`);
+    console.log(`Name of the chairman of this department: ${this.chairman}.`);
+    console.log(
+      `Total number of students in the department is ${this.currentStudents.length}.`
+    );
+    console.log(
+      `Total number of courses on offer by this department: ${this.courses.length}.`
+    );
+  }
+
+  public addCourse(course: Course) {
+    this.courses.push(course);
+  }
+
+  public printCourseInfo() {
+    for (let course of this.courses) {
+      course.printCourseInfo();
+    }
   }
 }
 
@@ -55,8 +102,11 @@ class SoftwareEngineering extends Department {
   }
 
   public describe(this: SoftwareEngineering) {
-    super.describe();
-    console.log(`Chairman of this department: ${this.chairman}`);
+    console.log(`Name of the department: ${this.departmentName}.`);
+    console.log(`Name of the chairman of this department: ${this.chairman}.`);
+    console.log(
+      `Total number of students in the department is ${this.currentStudents.length}.`
+    );
   }
 }
 
@@ -65,13 +115,29 @@ const farhan = new Student('Farhan Zaman', 26);
 const nipa = new Student('Nipa Howlader', 26);
 const shourov = new Student('Showrov Faisal', 28);
 
-const computerScience = new Department('Computer Science and Engineering');
+const java = new Course('Java', 3);
+const structuredProgramming = new Course('Structured Programming', 3);
+const appDevelopmentLab = new Course('App Development Lab', 1.5);
+const operatingSystems = new Course('Operating Systems', 3);
+const softwareDesignPattern = new Course('Software Design Patterns', 3);
+const webEngineering = new Course('Web Engineering', 1.5);
+
+const computerScience = new ComputerScience(`Upama Kabir`);
 computerScience.addStudent(arka);
 computerScience.addStudent(farhan);
 computerScience.addStudent(nipa);
 computerScience.addStudent(shourov);
+
+computerScience.addCourse(java);
+computerScience.addCourse(structuredProgramming);
+computerScience.addCourse(appDevelopmentLab);
+computerScience.addCourse(operatingSystems);
+computerScience.addCourse(softwareDesignPattern);
+computerScience.addCourse(webEngineering);
+
 computerScience.describe();
 computerScience.printStudentInfo();
+computerScience.printCourseInfo();
 console.log(`\n`);
 
 const softwareEngineerig = new SoftwareEngineering('Sakib Hasan');
